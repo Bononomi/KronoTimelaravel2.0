@@ -5,16 +5,16 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Quixlab - Bootstrap Admin Dashboard Template by Themefisher.com</title>
+        <title>KronoTime</title>
         <!-- Favicon icon -->
-        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{url('/')}}/images/favicon.png">
         <!-- Pignose Calender -->
-        <link href="./plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+        <link href="{{url('/')}}/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
         <!-- Chartist -->
-        <link rel="stylesheet" href="./plugins/chartist/css/chartist.min.css">
-        <link rel="stylesheet" href="./plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
+        <link rel="stylesheet" href="{{url('/')}}/plugins/chartist/css/chartist.min.css">
+        <link rel="stylesheet" href="{{url('/')}}/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
         <!-- Custom Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
+        <link href="{{url('/')}}/css/style.css" rel="stylesheet">
 
     </head>
 
@@ -115,7 +115,7 @@
                                 <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                             </a>
                             <ul aria-expanded="false">
-                                <li><a href="./index.html">Dashboard</a></li>
+                                <li><a href="{{url('/')}}">Dashboard</a></li>
                                 <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                             </ul>
                         </li>
@@ -125,7 +125,7 @@
                             </a>
                             <ul aria-expanded="false">
                                
-                                <li><a href="./listarproduto.html">Listar</a></li>
+                                <li><a href="{{url('/')}}/produto">Listar</a></li>
                                <li><a href="./produto.html">Cadastrar</a></li>
                                
                             </ul>
@@ -178,6 +178,8 @@
                 <div class="container-fluid mt-3">
                    
                      <!-- #/ Conteúdo da DASHBOARD -->
+                     
+                     @yield('conteudo')
 
                 </div>
                 <!-- #/ container -->
