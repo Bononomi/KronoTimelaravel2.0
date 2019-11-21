@@ -13,7 +13,7 @@ class ElementoController extends Controller
      */
     public function index()
     {
-        //
+        return view('elemento.create');
     }
 
     /**
@@ -23,7 +23,7 @@ class ElementoController extends Controller
      */
     public function create()
     {
-        //
+         return view('elemento.create');
     }
 
     /**

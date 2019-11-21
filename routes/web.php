@@ -12,11 +12,14 @@
 */
 
 Route::get('/', 'IndexController@index');
-Route::get('/cronometragem', 'CronometragemController@index');
+Route::get('/cronometro', 'CronometragemController@index');
+Route::get('/relatorio', 'RelatorioController@index');
+Route::get('/login', 'LoginController@index');
+Route::get('/register', 'LoginController@register');
 
 //CRUD's
 Route::resource('operacao', 'OperacaoController');
 Route::resource('usuario', 'UsuarioController');
 Route::resource('produto', 'ProdutoController');
 Route::resource('elemento', 'ElementoController');
-Route::resource('tomada-tempo', 'TomadaTempoController');
+Route::resource('tomadaTempo', 'TomadaTempoController');

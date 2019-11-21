@@ -45,11 +45,12 @@
             ***********************************-->
             <div class="nav-header">
                 <div class="brand-logo">
-                    <a href="index.html">
-
-
-
+                                        
+                    <a href="index.html" >
+                        
                     </a>
+                    
+                    
                 </div>
             </div>
             <!--**********************************
@@ -84,13 +85,13 @@
                                     <div class="dropdown-content-body">
                                         <ul>
                                             <li>
-                                                <a href="usuario.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                                <a href="usuario.html"><i class="icon-user"></i> <span>Perfil</span></a>
                                             </li>
 
 
                                             <hr class="my-2">
 
-                                            <li><a href="page-login.html"><i class="icon-key"></i> <span>Sair</span></a></li>
+                                            <li><a href="{{url('/')}}/login"><i class="icon-key"></i> <span>Sair</span></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -125,8 +126,8 @@
                             </a>
                             <ul aria-expanded="false">
                                
-                                <li><a href="{{url('/')}}/produto">Listar</a></li>
-                               <li><a href="./produto.html">Cadastrar</a></li>
+                                <li><a href="{{url('/')}}/produto">Listar Produtos</a></li>
+                               <li><a href="{{url('/')}}/produto/create">Cadastrar Produto</a></li>
                                
                             </ul>
                         </li>
@@ -136,9 +137,10 @@
                                 <i class="icon-book-open menu-icon"></i> <span class="nav-text">Operações</span>
                             </a>
                             <ul aria-expanded="false">
-                                <li><a href="./listagemoperacao.html">Listar</a></li>
-                                <li><a href="./novaoperacao.html">Nova Operação</a></li>
-                                 <li><a href="./tomadatempo.html">Tomada de Tempo</a></li>
+                                <li><a href="{{url('/')}}/operacao">Listar Operações</a></li>
+                                <li><a href="{{url('/')}}/operacao/create">Cadastrar Operação</a></li>
+                                 <li><a href="{{url('/')}}/tomadaTempo/create">Tomada de Tempo</a></li>
+                                  <li><a href="{{url('/')}}/elemento/create">Cadastrar Elemento</a></li>
         
                             </ul>
                         </li>
@@ -148,7 +150,7 @@
                             </a>
                             <ul aria-expanded="false">
 
-                                <li><a href="./listarrelatorio.html">Listar</a></li>
+                                <li><a href="{{url('/')}}/relatorio">Listar Relatórios</a></li>
                             </ul>
                         </li>
                         <li>
@@ -157,8 +159,8 @@
                             </a>
                             <ul aria-expanded="false">
 
-                                <li><a href="./usuario.html">Profile</a></li>
-                                <li><a href="./cadastrarusuario.html">Cadastrar</a></li>
+                                <li><a href="{{url('/')}}/usuario">Perfil</a></li>
+                                <li><a href="{{url('/')}}/usuario/create">Cadastrar Usuário</a></li>
                             </ul>
                         </li>
 
