@@ -13,7 +13,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-          return view('usuario.index');
+          $usuarios = \App\Usuario::get();
+          return view('usuario.index', compact('usuarios'));
     }
 
     /**
@@ -34,7 +35,10 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $usuario = new \App\Usuario();
+        $usuario->emailUsu = $request->get('emailUsu');
+        $usuario->save();
+        return "true";
     }
 
     /**
@@ -56,6 +60,7 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
+        $usuario = \App\Usuario::find($id);
         return view('usuario.edit');
     }
 
@@ -68,7 +73,10 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $usuario = \App\Usuario::find($id);
+         $usuario->emailUsu = $request->get('emailUsu');
+         $usuario->save();
+         return "true";
     }
 
     /**
@@ -79,6 +87,8 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuario = \App\Usuario::find($id);
+        $usuario->delete();
+        return "true";
     }
 }

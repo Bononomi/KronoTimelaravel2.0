@@ -29,21 +29,11 @@
                                         <td>Tinhoso</td>
 
 
-                                        <td><span><a href="{{url('/')}}/operacao/1/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Close"><i class="fa fa-close color-danger"></i></a></span>
+                                        <td><span><a href="{{url('/')}}/operacao/1/edit" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fa fa-close color-danger"></i></a></span>
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td>Junção</td>
-                                        <td>camisa</td>
-                                        <td>Stappler</td>
-                                        <td>Sei Lah</td>
-                                        <td>Rogeirinho boca de caçapa</td>
-
-
-                                        <td><span><a href="{{url('/')}}/operacao/1/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil color-muted m-r-5"></i> </a><a href="#" data-toggle="tooltip" data-placement="top" title="Close"><i class="fa fa-close color-danger"></i></a></span>
-                                        </td>
-                                    </tr>
+                                    
 
                                 </tbody>
                             </table>
