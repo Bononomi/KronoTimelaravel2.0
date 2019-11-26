@@ -44,7 +44,7 @@
 
 
                             <tr>
-
+                                <th scope="col">ID</th>  
                                 <th scope="col">Produto</th>                                                
                                 <th scope="col">Ação</th>
 

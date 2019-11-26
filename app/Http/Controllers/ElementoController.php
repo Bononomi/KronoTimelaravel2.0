@@ -4,16 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ElementoController extends Controller
-{
+class ElementoController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('elemento.create');
+    public function index() {
+        $elementos = \App\Elemento::where('nomeOp', '=', 'codOp')->get();
+        $operacao = \App\Operacao::find($_GET ['codOp']);
+        // return view('elemento.index', compact('elementos', 'operacao'));
+        return view('elemento.index', compact('elementos', 'operacao'));
     }
 
     /**
@@ -21,9 +23,8 @@ class ElementoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-         return view('elemento.create');
+    public function create() {
+        return view('elemento.create');
     }
 
     /**
@@ -32,9 +33,16 @@ class ElementoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $elemento = new \App\Elemento();
+        $elemento->nomeEle = $request->get('nomeEle');
+        $elemento->ritmo = $request->get('ritmo');
+        $elemento->interferencia = $request->get('interferencia');
+        $elemento->concessao = $request->get('concessao');
+        $elemento->qntVezes = $request->get('qntVezes');
+        $elemento->porPeca = $request->get('porPeca');
+        $elemento->save();
+        return "true";
     }
 
     /**
@@ -43,8 +51,7 @@ class ElementoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -54,9 +61,9 @@ class ElementoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id) {
+        $elemento = \App\Elemento::find($id);
+        return view('elemento.edit', compact('elemento'));
     }
 
     /**
@@ -66,9 +73,16 @@ class ElementoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id) {
+        $elemento = \App\Produto::find($id);
+        $elemento->nomeEle = $request->get('nomeEle');
+        $elemento->ritmo = $request->get('ritmo');
+        $elemento->interferencia = $request->get('interferencia');
+        $elemento->concessao = $request->get('concessao');
+        $elemento->qntVezes = $request->get('qntVezes');
+        $elemento->porPeca = $request->get('porPeca');
+        $elemento->save();
+        return "true";
     }
 
     /**
@@ -77,8 +91,11 @@ class ElementoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) 
     {
-        //
+        $elemento = \App\Elemento::find($id);
+        $elemento->delete();
+        return "true";
     }
+
 }

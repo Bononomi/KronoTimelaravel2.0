@@ -140,6 +140,7 @@
                                 <li><a href="{{url('/')}}/operacao">Listar Operações</a></li>
                                 <li><a href="{{url('/')}}/operacao/create">Cadastrar Operação</a></li>
                                  <li><a href="{{url('/')}}/tomadaTempo/create">Tomada de Tempo</a></li>
+                                   <li><a href="{{url('/')}}/elemento">Listar Elementos</a></li>
                                   <li><a href="{{url('/')}}/elemento/create">Cadastrar Elemento</a></li>
         
                             </ul>

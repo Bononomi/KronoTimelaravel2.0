@@ -2,12 +2,42 @@
 
 @section('conteudo') 
 
+<script>
+    function addElemento(url){
 
+    confirma = confirm("Deseja realmente cadastrar o elemento?");
+    if (confirma){
+
+
+    dados = $('#formAdd').serialize();
+    $.ajax({
+    method: 'post',
+            url: url,
+            data: dados,
+            dataType: 'html',
+            success: function (data) {
+            location.href = "/elemento";
+            },
+            error: function (argument){
+            alert ('Falha ao cadastrar produto!');
+            }
+    });
+    }
+    return false;
+    }
+
+
+</script>
+
+  <form action="" method="post" id="formAdd" onsubmit="return addElemento('{{route('elemento.store')}}')">
+            @csrf
+            @method('post')
+            
 <div class="form-group row">
     <label  class="col-lg-4 col-form-label" for="NomeElemento">Nome Elemento<span class="text-danger">*</span>
     </label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="NomeOperacao" name="NomeElemento" placeholder="Nome Elemento">
+        <input value="" type="text" class="form-control" id="val-currency" name="nomeEle">
     </div>
 </div>
 
@@ -32,7 +62,7 @@
     <label  class="col-lg-4 col-form-label" for="Ritmo">Ritmo<span class="text-danger">*</span>
     </label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="NomeMaquina" name="Ritmo" placeholder="Ritmo">
+        <input value="" type="text" class="form-control" id="val-currency" name="ritmo">
     </div>
 </div>
 
@@ -40,7 +70,7 @@
     <label  class="col-lg-4 col-form-label" for="Interferencia">Interferência<span class="text-danger">*</span>
     </label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="TipoEstudo" name="Interferencia" placeholder="Interferência">
+        <input value="" type="text" class="form-control" id="val-currency" name="interferencia">
     </div>
 </div>
 
@@ -48,7 +78,7 @@
     <label  class="col-lg-4 col-form-label" for="Concessao">Concessão<span class="text-danger">*</span>
     </label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="NomeCronometrista" name="Concessao" placeholder="Concessão">
+        <input value="" type="text" class="form-control" id="val-currency" name="concessao">
     </div>
 </div>
 
@@ -56,7 +86,7 @@
     <label  class="col-lg-4 col-form-label" for="qntVezes">Quantidade de Vezes<span class="text-danger">*</span>
     </label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="NomeCronometrista" name="qntVezes" placeholder="Quantidade de Vezes">
+        <input value="" type="text" class="form-control" id="val-currency" name="qntVezes">
     </div>
 </div>
 
@@ -64,7 +94,7 @@
     <label  class="col-lg-4 col-form-label" for="porPeca">Por Peça<span class="text-danger">*</span>
     </label>
     <div class="col-lg-6">
-        <input type="text" class="form-control" id="NomeCronometrista" name="porPeca" placeholder="Por Peça">
+        <input value="" type="text" class="form-control" id="val-currency" name="porPeca">
     </div>
 </div>
 

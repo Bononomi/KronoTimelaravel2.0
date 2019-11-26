@@ -2,6 +2,32 @@
 
 @section('conteudo') 
 
+<script>
+    function delUsuario(id, url){
+
+    confirma = confirm("Deseja realmente eliminar o seu usuario?");
+    if (confirma){
+
+
+    dados = $('#' + id).serialize();
+    $.ajax({
+    method: 'post',
+            url: url,
+            data: dados,
+            dataType: 'html',
+            success: function (data) {
+            $('#linha' + id).remove();
+            },
+            error: function (argument){
+            alert ('Falha ao eliminar usuario!');
+            }
+    });
+    }
+    return false;
+    }
+
+</script>
+
 
 <div class="content-body">
 
@@ -26,18 +52,20 @@
                             </div>
                         </div>
 
-
+                        @foreach($usuarios as $u)
                         <ul class="card-profile__info">
-                            <li><strong class="text-dark mr-4">Nome</strong></li>
+                            <li><strong class="text-dark mr-4">Email</strong> <span>{{$u->emailUsu}}</span></li>
                         </ul>
 
-                        <ul class="card-profile__info">
-                            <li><strong class="text-dark mr-4">Email</strong> <span>name@domain.com</span></li>
-                        </ul>
-
-                        <a href="{{url('/')}}/usuario/1/edit"><button type="button" class="btn mb-1 btn-success">Editar</button></a>
-                        <button type="button" class="btn mb-1 btn-danger">Excluir minha conta</button>
+                        <a href="{{route('usuario.edit', $u->codUsu)}}"><button type="button" class="btn mb-1 btn-success">Editar</button></a>
+                        <button type="button" class="btn mb-1 btn-danger" ><a onclick="return delUsuario('del{{$y->codUsu}}', '{{route('usuario.destroy', $u->codUsu)}}')" data-toggle="tooltip" data-placement="top" title="Excluir">Excluir minha conta</a></button>
+                        <form action="" method="post" id="del{{$u->codUsu}}">
+                            @csrf
+                            @method('DELETE')
+                        </form>
                     </div>
+
+                    @endforeach
                 </div>  
 
 
