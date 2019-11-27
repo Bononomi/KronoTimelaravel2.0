@@ -41,8 +41,9 @@
 
         <div class="container-fluid">
             <div class="row">
-
+                
                 <div class="card">
+
                     <div class="card-body">
                         <div class="media align-items-center mb-4">
 
@@ -57,17 +58,16 @@
                             <li><strong class="text-dark mr-4">Email</strong> <span>{{$u->emailUsu}}</span></li>
                         </ul>
 
-                        <a href="{{route('usuario.edit', $u->codUsu)}}"><button type="button" class="btn mb-1 btn-success">Editar</button></a>
-                        <button type="button" class="btn mb-1 btn-danger" ><a onclick="return delUsuario('del{{$y->codUsu}}', '{{route('usuario.destroy', $u->codUsu)}}')" data-toggle="tooltip" data-placement="top" title="Excluir">Excluir minha conta</a></button>
-                        <form action="" method="post" id="del{{$u->codUsu}}">
+                        <a href="{{url('/')}}/usuario/{{$u->codUsu}}/edit"><button type="" class="btn mb-1 btn-success">Editar</button></a>
+                        
                             @csrf
-                            @method('DELETE')
+                            
                         </form>
                     </div>
+                     @endforeach
 
-                    @endforeach
                 </div>  
-
+               
 
             </div>
             <!-- #/ container -->

@@ -52,7 +52,7 @@
                                     </div>
                                     <button class="btn login-form__btn submit w-100">Entrar</button>
                                 </form>
-                                <p class="mt-5 login-form__footer">Não tem uma conta? <a href={{url('/')}}/register class="text-primary">Registrar-se</a> agora</p>
+                                <p class="mt-5 login-form__footer">Não tem uma conta? <a href={{url('/')}}/usuario/create class="text-primary">Registrar-se</a> agora</p>
                             </div>
                         </div>
                     </div>
