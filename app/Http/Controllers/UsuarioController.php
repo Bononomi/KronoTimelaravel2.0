@@ -37,6 +37,7 @@ class UsuarioController extends Controller
     {
         $usuario = new \App\Usuario();
         $usuario->emailUsu = $request->get('emailUsu');
+        $usuario->senhaUsu = $request->get('senhaUsu');
         $usuario->save();
         return "true";
     }
@@ -61,7 +62,7 @@ class UsuarioController extends Controller
     public function edit($id)
     {
         $usuario = \App\Usuario::find($id);
-        return view('usuario.edit');
+        return view('usuario.edit', compact('usuario'));
     }
 
     /**
@@ -75,6 +76,7 @@ class UsuarioController extends Controller
     {
          $usuario = \App\Usuario::find($id);
          $usuario->emailUsu = $request->get('emailUsu');
+         $usuario->senhaUsu = $request->get('senhaUsu');
          $usuario->save();
          return "true";
     }
