@@ -11,11 +11,15 @@ class ElementoController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $elementos = \App\Elemento::where('nomeOp', '=', 'codOp')->get();
-        $operacao = \App\Operacao::find($_GET ['codOp']);
+    public function index() {    
+         //$elementos = \App\Elemento::get();
+        // $operacao = \App\Operacao::get();
+        //$elementos = \App\Elemento::where('codop', '=', $_GET ['codop'])->get(); //BOTAR ESSE CODIGO DE VOLTA DPS!!!
+        $elementos = \App\Elemento::join('operacao', 'elemento.codOp', '=', 'operacao.codOp')->where('elemento.codop', '=', $_GET ['codop'])->get(); //BOTAR ESSE CODIGO DE VOLTA DPS!!!
+        //$p->nomeOpfind($_GET ['codOp'])
         // return view('elemento.index', compact('elementos', 'operacao'));
-        return view('elemento.index', compact('elementos', 'operacao'));
+        return view('elemento.index', compact('elementos')); //BOTAR ESSE CODIGO DE VOLTA DPS!!!
+        //return view('elemento.index', compact('elementos'));
     }
 
     /**
@@ -35,6 +39,7 @@ class ElementoController extends Controller {
      */
     public function store(Request $request) {
         $elemento = new \App\Elemento();
+        //$elemento->nomeOp = $request->get('nomeOp');
         $elemento->nomeEle = $request->get('nomeEle');
         $elemento->ritmo = $request->get('ritmo');
         $elemento->interferencia = $request->get('interferencia');

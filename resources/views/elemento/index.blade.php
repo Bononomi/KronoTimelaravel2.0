@@ -63,8 +63,8 @@
                             
                             <tr id="linhadel{{$e->codEle}}">
                                 <th scope="row">{{$e->codEle}}</th>
-                                <td>{{$e->nomEle}}</td>
-                                <td>{{$e->nomeOp}}</td>
+                                <td>{{$e->nomeOp}}</td> 
+                                <td>{{$e->nomeEle}}</td>
                                 <td>{{$e->ritmo}}</td>
                                 <td>{{$e->interferencia}}</td>
                                 <td>{{$e->concessao}}</td>
@@ -72,7 +72,7 @@
                                 <td>{{$e->porPeca}}</td>
                                
 
-                                <td><span><a href="{{route('elemento.edit', $e->codEle)}}" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil color-muted m-r-5"></i> </a>
+                                <td><span><a href="{{route('elemento.edit', $e->codOp)}}" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil color-muted m-r-5"></i> </a>
 
                                         <a href="" onclick="return delElemento('del{{$e->codEle}}', '{{route('elemento.destroy', $e->codEle)}}' )" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fa fa-close color-danger"></i></a></span>
                                     <form action="" method="post" id="del{{$e->codEle}}">

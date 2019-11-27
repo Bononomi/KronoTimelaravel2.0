@@ -47,12 +47,13 @@
                     <input value="{{$elemento->nomeEle}}" type="text" class="form-control" id="val-currency" name="nomeEle">
                 </div>
             </div>
-
+<!--
             <div class="form-group row">
                 <label  class="col-lg-4 col-form-label" for="SelProdutos">Selecionar Operação <span class="text-danger">*</span>
-                </label>
+                </label>3
                 <div class="col-lg-6">
 
+                   
                     <select required class="form-control" id="SelProdutos" name="SelProdutos">
                         <option value="">Selecione uma Operação</option>
                         <option value="Aqui dentro vai ser o numero do elemento la no banco de dados">Junção</option>
@@ -62,6 +63,7 @@
                 </div>
 
             </div>   
+-->
 
 
             <div class="form-group row">

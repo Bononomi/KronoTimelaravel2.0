@@ -2,14 +2,52 @@
 
 @section('conteudo') 
 
-<!-- Nome de Operação -->
-<div class="form-group row">
-    <label  class="col-lg-4 col-form-label" for="NomeOperacao">Nome Operação <span class="text-danger">*</span>
-    </label>
-    <div class="col-lg-6">
-        <input type="text" class="form-control" id="NomeOperacao" name="NomeOperacao" placeholder="Nome Operação">
-    </div>
-</div>
+
+<script>
+   function editProduto(url){
+        
+        confirma = confirm("Deseja realmente editar a operação?");
+        if(confirma){
+        
+        
+        dados = $('#formEdit').serialize();
+    
+        $.ajax({
+        method: 'put',
+        url: url,
+        data: dados,
+        dataType: 'html',
+        success: function (data) {
+         location.href = "/operacao";
+        },
+        error: function (argument){
+            alert ('Falha ao editar a operação!');
+            }
+        });
+            }
+        return false;
+    }
+
+
+</script>
+<div class="container-fluid">
+
+    <div class="container-fluid mt-3">
+
+
+ <!-- #/ Conteúdo da DASHBOARD -->
+        <form action="" method="post" id="formEdit" onsubmit="return editOperacao('{{route('operacao.update', $operacao->codOp)}}')">
+            @csrf
+        
+        <div class="form-group row">
+            <label class="col-lg-4 col-form-label" for="val-currency">Nome Operação <span class="text-danger">*</span>
+            </label>
+            <div class="col-lg-6">
+                <input value="{{$operacao->nomeOp}}" type="text" class="form-control" id="val-currency" name="nomPro">
+            </div>
+        </div>
+       
+
 <!-- Puxar o Produto -->
 <div class="form-group row">
     <label  class="col-lg-4 col-form-label" for="SelProdutos">Selecionar Produto <span class="text-danger">*</span>
@@ -56,10 +94,11 @@
 
 <div class="form-group row">
     <div class="col-lg-8 ml-auto">
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="submit" class="btn btn-primary">Editar</button>
     </div>
 </div>
 
-
+</div>
+    </div>
 
 @stop
