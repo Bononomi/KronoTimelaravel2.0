@@ -14,9 +14,9 @@
     method: 'post',
             url: url,
             data: dados,
-            dataType: 'html',
+            dataType: 'html',        
             success: function (data) {
-            location.href = "/elemento";
+            location.href = "/elemento?codop="+$('#codOp').val();
             },
             error: function (argument){
             alert ('Falha ao editar elemento!');
@@ -64,6 +64,14 @@
 
             </div>   
 -->
+    <div class="form-group row">
+        <label  class="col-lg-4 col-form-label" for="SelProdutos">Selecionar Operação <span class="text-danger">*</span>
+        </label>
+        <div class="col-lg-6">
+            <input value="" type="text" class="form-control" id="codOp" name="codOp">
+        </div>
+    </div>
+
 
 
             <div class="form-group row">
@@ -120,6 +128,8 @@
         </form>
     </div>
 </div>
+
+</form>
 
 
 @stop

@@ -41,6 +41,7 @@ class ElementoController extends Controller {
         $elemento = new \App\Elemento();
         //$elemento->nomeOp = $request->get('nomeOp');
         $elemento->nomeEle = $request->get('nomeEle');
+        $elemento->codOp = $request->get('codOp');
         $elemento->ritmo = $request->get('ritmo');
         $elemento->interferencia = $request->get('interferencia');
         $elemento->concessao = $request->get('concessao');
@@ -79,8 +80,9 @@ class ElementoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        $elemento = \App\Produto::find($id);
+        $elemento = \App\Elemento::find($id);
         $elemento->nomeEle = $request->get('nomeEle');
+        $elemento->codOp = $request->get('codOp');
         $elemento->ritmo = $request->get('ritmo');
         $elemento->interferencia = $request->get('interferencia');
         $elemento->concessao = $request->get('concessao');
