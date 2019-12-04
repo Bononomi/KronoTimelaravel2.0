@@ -215,6 +215,7 @@
         <script src="{{url('/')}}/js/settings.js"></script>
         <script src="{{url('/')}}/js/gleek.js"></script>
         <script src="{{url('/')}}/js/styleSwitcher.js"></script>
+         <script src="{{url('/')}}/js/cronometro.js"></script>
 
         <!-- Chartjs -->
         <script src="{{url('/')}}/plugins/chart.js/Chart.bundle.min.js"></script>

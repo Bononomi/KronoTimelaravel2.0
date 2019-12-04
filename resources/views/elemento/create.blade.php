@@ -16,7 +16,7 @@
             data: dados,
             dataType: 'html',
             success: function (data) {
-            location.href = "/elemento?codEle="+$('#codEle').val();
+            location.href = "/elemento";
             },
             error: function (argument){
             alert ('Falha ao cadastrar produto!');

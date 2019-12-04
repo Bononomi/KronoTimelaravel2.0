@@ -22,7 +22,7 @@
                     <h1><div id="difference">00:00:000</div></h1>
                 </div>	
                 <div id="acoes">
-                    <button type="button" class="btn mb-1 btn-success">Iniciar</button>
+                    <button type="button" class="btn mb-1 btn-success" onclick="continuar();">Iniciar</button>
                     <button type="button" class="btn mb-1 btn-warning">Tempo Estranho</button>
 
                 </div>

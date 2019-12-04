@@ -4,17 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class OperacaoController extends Controller
-{
+class OperacaoController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-            $operacoes = \App\Operacao::get();
-            return view('operacao.index',compact('operacoes'));
+    public function index() {
+        $operacoes = \App\Operacao::get();
+        return view('operacao.index', compact('operacoes'));
     }
 
     /**
@@ -22,8 +21,7 @@ class OperacaoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         return view('operacao.create');
     }
 
@@ -33,10 +31,13 @@ class OperacaoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $operacao = new \App\Operacao();
-        $operacao->nomPro = $request->get('nomPro');
+        $operacao->nomeOp = $request->get('nomeOp');
+        $operacao->codPro = $request->get('codPro');
+        $operacao->maquinaOp = $request->get('maquinaOp');
+        $operacao->tipoEstudoOp = $request->get('tipoEstudoOp');
+        $operacao->cronometrista = $request->get('cronometrista');
         $operacao->save();
         return "true";
     }
@@ -47,8 +48,7 @@ class OperacaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -58,10 +58,9 @@ class OperacaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         $operacao = \App\Operacao::find($id);
-        return view('operacao.edit',compact('operacao'));
+        return view('operacao.edit', compact('operacao'));
     }
 
     /**
@@ -71,12 +70,15 @@ class OperacaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-         $operacao = \App\Operacao::find($id);
-         $operacao->codPro = $request->get('codPro');
-         $operacao->save();
-         return "true";
+    public function update(Request $request, $id) {
+        $operacao = \App\Operacao::find($id);
+        $operacao->nomeOp = $request->get('nomeOp');
+        $operacao->codPro = $request->get('codPro');
+        $operacao->maquinaOp = $request->get('maquinaOp');
+        $operacao->tipoEstudoOp = $request->get('tipoEstudoOp');
+        $operacao->cronometrista = $request->get('cronometrista');
+        $operacao->save();
+        return "true";
     }
 
     /**
@@ -85,10 +87,10 @@ class OperacaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-         $operacao = \App\Operacao::find($id);
+    public function destroy($id) {
+        $operacao = \App\Operacao::find($id);
         $operacao->delete();
         return "true";
     }
+
 }
