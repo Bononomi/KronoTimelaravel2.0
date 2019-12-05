@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Nov-2019 às 00:38
+-- Tempo de geração: 04-Dez-2019 às 23:02
 -- Versão do servidor: 10.4.6-MariaDB
 -- versão do PHP: 7.3.9
 
@@ -35,6 +35,13 @@ CREATE TABLE `cronometragem` (
   `tempo` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `cronometragem`
+--
+
+INSERT INTO `cronometragem` (`codCro`, `codEle`, `codTom`, `tempo`) VALUES
+(1, 1, 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -52,6 +59,17 @@ CREATE TABLE `elemento` (
   `porPeca` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `elemento`
+--
+
+INSERT INTO `elemento` (`codEle`, `codOp`, `nomeEle`, `ritmo`, `interferencia`, `concessao`, `qntVezes`, `porPeca`) VALUES
+(1, 1, 'leo', 20, 21, 22, 23, 30),
+(4, 1, 'leo', 20, 21, 22, 23, 24),
+(5, 1, 'leo', 21, 22, 23, 24, 25),
+(8, 1, 'deivid', 15, 15, 15, 15, 15),
+(10, 1, 'jardel', 1, 1, 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -66,6 +84,14 @@ CREATE TABLE `operacao` (
   `tipoEstudoOp` varchar(120) NOT NULL,
   `cronometrista` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `operacao`
+--
+
+INSERT INTO `operacao` (`codOp`, `nomeOp`, `codPro`, `maquinaOp`, `tipoEstudoOp`, `cronometrista`) VALUES
+(1, 'Operacao1', 1, 'gg', 'gg', 'gg'),
+(2, 'Operacao2', 1, 'Maquina2', 'Estudo2', 'Leo');
 
 -- --------------------------------------------------------
 
@@ -83,8 +109,7 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`codPro`, `nomPro`) VALUES
-(1, 'Toalha'),
-(2, 'Lençol');
+(1, 'PORDUTO');
 
 -- --------------------------------------------------------
 
@@ -102,6 +127,13 @@ CREATE TABLE `tomada_tempo` (
   `obsTom` varchar(240) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `tomada_tempo`
+--
+
+INSERT INTO `tomada_tempo` (`codTom`, `codOp`, `dataTom`, `numLeitura`, `turnoTom`, `operadorTom`, `obsTom`) VALUES
+(1, 1, '0000-00-00 00:00:00', 5, '2', '1', 'oi');
+
 -- --------------------------------------------------------
 
 --
@@ -113,6 +145,13 @@ CREATE TABLE `usuario` (
   `emailUsu` varchar(120) NOT NULL,
   `senhaUsu` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`codUsu`, `emailUsu`, `senhaUsu`) VALUES
+(1, 'leo@gmail', 'leo');
 
 --
 -- Índices para tabelas despejadas
@@ -164,16 +203,22 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de tabela `cronometragem`
+--
+ALTER TABLE `cronometragem`
+  MODIFY `codCro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de tabela `elemento`
 --
 ALTER TABLE `elemento`
-  MODIFY `codEle` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codEle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `operacao`
 --
 ALTER TABLE `operacao`
-  MODIFY `codOp` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codOp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
@@ -185,13 +230,13 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT de tabela `tomada_tempo`
 --
 ALTER TABLE `tomada_tempo`
-  MODIFY `codTom` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codTom` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `codUsu` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codUsu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restrições para despejos de tabelas

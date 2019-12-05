@@ -11,7 +11,7 @@ class CronometragemController extends Controller {
     }
     
     public function getTomadaTempo() {
-        $codigoTomadaTempo = $_GET ['codCro'];
+        $codigoTomadaTempo = $_GET ['cod'];
         $tomada = \App\TomadaTempo::
                 where('codTom', '=', $codigoTomadaTempo)
                 ->get();
@@ -28,29 +28,29 @@ class CronometragemController extends Controller {
         $codigoOperacao = $_GET ['cod'];
         
         $elementos = \App\Elemento::
-                where('OpeCod', '=', $codigoOperacao)
+                where('codTom', '=', $codigoOperacao)
                 ->get();
         
         return $elementos;
     }
     
-    public function guardar(Request $request) {
+    public function guardar() {
         
         $cronometragem = new \App\Cronometragem();
         
         //Número da leitura
-        $cronometragem->codCro = $request->get('codCro');
+        $cronometragem->codCro = $_GET ['codCro'];
         
         //Código da tomada de tempo
-        $cronometragem->codTom = $request->get('codTom');
+        $cronometragem->codTom = $_GET ['codTom'];
         
         //Código do elemento
-        $cronometragem->codEle = $request->get('codEle');
+        $cronometragem->codEle = $_GET ['codEle'];
         
         //Tempo - normalização de dados
-        $tempo = $request->get('tempo');
+        $tempo = $_GET ['tempo'];
         $tempo = str_replace(' ', '', $tempo);
-        $cronometragem->CroTem = $tempo;
+        $cronometragem->tempo = $tempo;
         
         //Salva a cronometragem
         $cronometragem->save();

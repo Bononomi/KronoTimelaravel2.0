@@ -6,6 +6,10 @@ window.onload = function () {
     document.cron.continua.onclick = continuar;
     document.cron.reinicia.onclick = reiniciar;
     document.cron.proximo.onclick = capturar;
+    
+    //Obtém a tomada de tempo e os elementos
+    getTomadaTempo(1);
+    getElementos(1);
 }
 //variables de inicio:
 var marcha = 0; //control del temporizador
@@ -69,24 +73,61 @@ function reiniciar() {
     visor.innerHTML = "00 : 00 : 00"; //visor a cero
 }
 
-var contadorCaptura = 0
+var contadorCaptura = 0;
+var contadorElemento = 0;
 function capturar() {
+    
+    //Verifica se precisa zerar o cotador de elementos
+    if (contadorElemento == elementos.length) {
+        contadorElemento = 0;
+    }
+    
+    console.log(contadorElemento);
     parar();
     tempoCapturado = $('#reloj').html();
     contadorCaptura++;
     reiniciar();
     empezar();
 
-    elemento = "Elemento de Teste"
+    elemento = elementos[contadorElemento];
+    
     linha = "<tr>\n\
             <td>" + contadorCaptura + "</td>\n\
-            <td>" + elemento + "</td>\n\
+            <td>" + elemento.EleNom + "</td>\n\
             <td>" + tempoCapturado + "</td>\n\
             </tr>";
     $('#corpoTabela').append(linha);
 
     console.log('Cronômetro ' + contadorCaptura + " : " + tempoCapturado);
+    
+    registrarTempo
+    (contadorCaptura, tomadaTempo.TomCod, elemento.EleCod, tempoCapturado);
+    
+    contadorElemento++;
+    
+    //Encerra o cronometro
+    if (contadorCaptura >= (elementos.length * tomadaTempo.TomNumLei)) {
+        parar();
+        $('#proximo').attr('disabled', 'true');
+    }
+    
+}
 
+function registrarTempo(numLeitura, codTomadaTempo, codElemento, tempo) {
+    
+    $.ajax({
+        method: 'get',
+        url: '/cronometrar/guardar',
+        data: 'CroNroLei='+numLeitura+'&TomCod='+codTomadaTempo+'&EleCod='+codElemento+'&CroTem='+tempo,
+        dataType: 'json',
+        success: function (data) {
+            console.log('Leitura armazenada - '+numLeitura);
+        },
+        error: function (argument) {
+            alert('Falha ao obter dados!');
+        }
+    });
+    
 }
 
 var tomadaTempo = null;

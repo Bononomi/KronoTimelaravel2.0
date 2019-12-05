@@ -4,15 +4,10 @@
 
 <!-- Puxar a operação -->
 <div class="form-group row">
-    <label  class="col-lg-4 col-form-label" for="SelOperacao">Selecionar Operação <span class="text-danger">*</span>
+    <label  class="col-lg-4 col-form-label" for="IdOperacao">ID da Operação<span class="text-danger">*</span>
     </label>
     <div class="col-lg-6">
-
-        <select required class="form-control" id="SelOperacao" name="SelOperacao">
-            <option value="">Selecionar Operação</option>
-            <option value="Aqui dentro vai ser o numero da operação la no banco de dados">Junção</option>
-            <option>Recorte</option>
-        </select>
+        <input type="int" class="form-control" id="QuantLeituras" name="IdOperacao" placeholder="ID da Operação">
     </div>
 
 </div>
